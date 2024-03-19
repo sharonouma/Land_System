@@ -1,0 +1,34 @@
+{% extends "base.html" %}   
+    
+{% block content %}
+    <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+      </div>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    </p>
+    
+    
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="d-flex justify-content-end"><p style="padding: 10px"><a class="btn btn-success" href="{{ url_for('.add_user_view') }}"> Add User </a></p></div>
+                </div>
+            </div>
+            {{ table }}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+  {% endblock %}

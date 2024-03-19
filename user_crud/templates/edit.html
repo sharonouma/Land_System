@@ -1,0 +1,42 @@
+{% extends "base.html" %}   
+    
+{% block content %}
+   
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2>Edit User</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/users">Users</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+                </ol>
+              </nav>
+            <form method="post" action="/update">
+                <dl>
+                    <p>
+                        <input class="form-control" name="inputName" value="{{ row['user_name'] }}" type="text" placeholder="Name" autocomplete="off"
+                            required>
+                    </p>
+                    <p>
+                        <input class="form-control" name="inputEmail" value="{{ row['user_email'] }}" type="text" placeholder="Email"
+                            autocomplete="off" required>
+                    </p>
+                    <p>
+                      <input class="form-control" name="inputMobile" value="{{ row['phone_number'] }}" type="text" placeholder="Mobile No"
+                          autocomplete="off" required>
+                  </p>
+                    <p>
+                        <input class="form-control" name="inputPassword" value="" type="password" placeholder="Password" autocomplete="off" required>
+                    </p>
+                </dl>
+                <p>
+                    <input name="id" value="{{ row['user_id'] }}" type="hidden">
+                    <input class="btn btn-info" type="submit" value="Submit">
+                </p>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    
+   {% endblock %}
